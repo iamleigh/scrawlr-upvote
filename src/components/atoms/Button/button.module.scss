@@ -1,0 +1,35 @@
+.suc-button {
+    cursor: pointer;
+
+    // Appearance
+    padding: 0.6em 1.2em;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: #F4F6F8;
+
+    // Typography
+    color: #343A40;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+
+    // Interaction
+    transition: border-color 0.25s;
+
+    // Modifier: Selected
+    &--selected {
+        background: #E5E8FD;
+        color: #253CF2;
+    }
+
+    // State: Hover
+    &:hover {
+        border-color: #253CF2;
+    }
+
+    // State: Focus
+    // &:focus,
+    &:focus-visible {
+        outline: 4px auto -webkit-focus-ring-color;
+    }
+}
