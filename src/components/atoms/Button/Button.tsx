@@ -1,5 +1,5 @@
 import React from "react"
-import Icon from "../Icon/Icon"
+import Icon from "@atom/Icon/Icon"
 import type { IconName } from "../../../types/icon"
 import styles from "./button.module.scss"
 import clsx from "clsx"

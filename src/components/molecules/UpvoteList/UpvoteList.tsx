@@ -1,5 +1,5 @@
 import React from "react"
-import Upvote from "../../atoms/Upvote/Upvote"
+import Upvote from "@atom/Upvote/Upvote"
 import styles from "./upvoteList.module.scss"
 import clsx from "clsx"
 

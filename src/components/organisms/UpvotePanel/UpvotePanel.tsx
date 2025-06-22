@@ -1,6 +1,6 @@
 import React from "react"
-import Button from "../../atoms/Button/Button"
-import UpvoteList from "../../molecules/UpvoteList/UpvoteList"
+import Button from "@atom/Button/Button"
+import UpvoteList from "@molecule/UpvoteList/UpvoteList"
 import styles from "./upvotePanel.module.scss"
 import clsx from "clsx"
 
