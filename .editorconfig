@@ -1,8 +1,10 @@
-# EditorConfig is awesome: https://EditorConfig.org
+# EditorConfig is awesome:
+# https://EditorConfig.org
 
-# top-most EditorConfig file
+# This EditorConfig overrides any parent EditorConfigs
 root = true
 
+# Default rules applied to all file types
 [*]
 charset = utf-8
 end_of_line = lf
@@ -12,9 +14,11 @@ indent_style = space
 indent_size = 4
 quote_type = single
 
+# Rules applied to JavaScript and TypeScript files
 [{*.json, *.yml}]
 indent_size = 2
 
+# Rules applied to stylesheet files
 [{*.scss, *.less, *.sass}]
 indent_style = tab
 quote_type = double
