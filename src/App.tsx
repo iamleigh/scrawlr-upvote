@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
+import Button from '@atom/Button/Button'
+import Header from '@molecule/Header/Header'
+import Card from '@atom/Card/Card'
+import UpvotePanel from '@organism/UpvotePanel/UpvotePanel'
+import Footer from '@molecule/Footer/Footer'
+import { UpvoteProvider } from './contexts/UpvoteContext'
+import { useUpvote } from './contexts/useUpvote'
 
 function App() {
-  const [count, setCount] = useState(0)
+    return (
+        <UpvoteProvider>
+            <AppWithUpvote />
+        </UpvoteProvider>
+    )
+}
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+function AppWithUpvote() {
+    const { panelCount, incrementPanelCount, resetPanelCount } = useUpvote()
+
+    return (
+        <>
+            <Header title="Scrawlr Upvote">
+                <Button label="Reset" onClick={resetPanelCount} />
+                <Button label="Add List" onClick={incrementPanelCount} />
+            </Header>
+
+            <Card>
+                {Array.from({ length: panelCount }).map((_, index) => (
+                    <UpvotePanel key={`upvote-panel-${index}`} />
+                ))}
+            </Card>
+
+            <Footer />
+        </>
+    )
 }
 
 export default App
