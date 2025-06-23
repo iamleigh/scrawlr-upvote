@@ -30,7 +30,7 @@
       "@atom/*": ["./src/components/atoms/*"],
       "@molecule/*": ["./src/components/molecules/*"],
       "@organism/*": ["./src/components/organisms/*"]
-    },
+    }
   },
-  "include": ["src"],
+  "include": ["src"]
 }

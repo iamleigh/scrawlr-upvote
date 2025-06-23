@@ -1,8 +1,8 @@
-import React from "react"
-import Icon from "@atom/Icon/Icon"
-import type { IconName } from "../../../types/icon"
-import styles from "./button.module.scss"
-import clsx from "clsx"
+import React from 'react'
+import Icon from '@atom/Icon/Icon'
+import type { IconName } from '../../../types/icon'
+import styles from './button.module.scss'
+import clsx from 'clsx'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     label: string
@@ -19,18 +19,20 @@ const Button: React.FC<ButtonProps> = ({
     hideLabel,
     selected,
     disabled,
-    onClick
+    onClick,
 }) => {
     return (
         <button
             className={clsx({
                 [styles['suc-button']]: true,
+                [styles['suc-button--icon']]: hideLabel,
                 [styles['suc-button--selected']]: selected,
             })}
-            {...(hideLabel && { "aria-label": label })}
-            {...(typeof selected === "boolean" && { "aria-pressed": selected })}
-            {...(disabled && { "disabled": true })}
-            onClick={onClick}>
+            {...(hideLabel && { 'aria-label': label })}
+            {...(typeof selected === 'boolean' && { 'aria-pressed': selected })}
+            {...(disabled && { disabled: true })}
+            onClick={onClick}
+        >
             {icon && <Icon name={icon} />}
             {!hideLabel && label}
         </button>

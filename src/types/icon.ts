@@ -1,4 +1,4 @@
-import { faArrowUp, faAdd } from "@fortawesome/free-solid-svg-icons"
+import { faArrowUp, faAdd } from '@fortawesome/free-solid-svg-icons'
 
 /// -----------------------------------------------------------------------------
 /// 🟢 IconName

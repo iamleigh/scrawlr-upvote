@@ -1,7 +1,7 @@
-import React from "react"
-import Upvote from "@atom/Upvote/Upvote"
-import styles from "./upvoteList.module.scss"
-import clsx from "clsx"
+import React from 'react'
+import Upvote from '@atom/Upvote/Upvote'
+import styles from './upvoteList.module.scss'
+import clsx from 'clsx'
 
 interface UpvoteListProps {
     upvotes: number
@@ -9,14 +9,22 @@ interface UpvoteListProps {
     onToggle: () => void
 }
 
-const UpvoteList: React.FC<UpvoteListProps> = ({ upvotes, selected, onToggle }) => {
+const UpvoteList: React.FC<UpvoteListProps> = ({
+    upvotes,
+    selected,
+    onToggle,
+}) => {
     return (
-        <div role="toolbar" aria-label="Upvote Buttons" className={clsx(styles['suc-upvote-toolbar'])}>
+        <div
+            role="toolbar"
+            aria-label="Upvote Buttons"
+            className={clsx(styles['suc-upvote-toolbar'])}
+        >
             {Array.from({ length: upvotes }).map((_, index) => (
-                <Upvote 
-                    key={`upvote-${index}`} 
-                    selected={selected} 
-                    onClick={onToggle} 
+                <Upvote
+                    key={`upvote-${index}`}
+                    selected={selected}
+                    onClick={onToggle}
                 />
             ))}
         </div>
