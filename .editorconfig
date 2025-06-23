@@ -12,13 +12,17 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 indent_style = space
 indent_size = 4
-quote_type = single
 
 # Rules applied to JavaScript and TypeScript files
+[{*.js, *.ts, *.jsx, *.tsx}]
+quote_type = single
+spaces_around_operators = true
+spaces_around_brackets = none
+
+# Rules applied to JSON and YAML files
 [{*.json, *.yml}]
 indent_size = 2
 
 # Rules applied to stylesheet files
 [{*.scss, *.less, *.sass}]
 indent_style = tab
-quote_type = double
