@@ -19,11 +19,11 @@ const UpvoteContext = createContext<UpvoteContextType | undefined>(undefined)
 
 const LOCAL_STORAGE_KEY = 'leighton_upvotes'
 const DEFAULT_COUNT = 3
-const DEFAULT_PANELS = {
+const createDefaultPanel = (): UpvoteList => ({
     listId: uuidv4(),
     upvotes: 1,
     selected: false,
-}
+})
 
 const UpvoteProvider: React.FC<{ children: React.ReactNode }> = ({
     children,
@@ -32,9 +32,7 @@ const UpvoteProvider: React.FC<{ children: React.ReactNode }> = ({
         const stored = localStorage.getItem(LOCAL_STORAGE_KEY)
         return stored
             ? JSON.parse(stored)
-            : Array.from({ length: DEFAULT_COUNT }).map(() => ({
-                  ...DEFAULT_PANELS,
-              }))
+            : Array.from({ length: DEFAULT_COUNT }).map(() => createDefaultPanel())
     })
 
     useEffect(() => {
