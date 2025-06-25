@@ -1,0 +1,26 @@
+@use "../../../assets/scss/utils.scss" as *;
+
+.suc-tag {
+    width: 48px;
+	height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $radius-md;
+    background: var(--color-button-bg-default);
+	color: var(--color-button-label-default);
+
+    // Modifier: (Size) Small
+	&--sm {
+		width: 28px;
+		height: 28px;
+		border-radius: $radius-sm;
+	}
+
+	// Modifier: (Size) Large
+	&--lg {
+		width: 72px;
+		height: 72px;
+		border-radius: $radius-lg;
+	}
+}
