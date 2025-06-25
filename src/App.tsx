@@ -22,7 +22,11 @@ function AppWithUpvote() {
         <>
             <Header title="Scrawlr Upvote">
                 <Button label="Reset" onClick={resetPanelCount} />
-                <Button label="Add List" onClick={incrementPanelCount} />
+                <Button
+                    label="Add New List"
+                    icon="add"
+                    onClick={incrementPanelCount}
+                />
             </Header>
 
             <Card>
