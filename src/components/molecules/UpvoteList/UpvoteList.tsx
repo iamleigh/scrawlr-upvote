@@ -16,6 +16,7 @@ const UpvoteList: React.FC<UpvoteListProps> = ({
     onToggle,
 }) => {
     const MAX_DISPLAYED = 5
+    const BUTTON_SIZE = 'lg'
     const hiddenCount = upvotes > MAX_DISPLAYED ? upvotes - MAX_DISPLAYED : 0
     const formatCount = (count: number): string => {
         if (count >= 1_000_000_000) return '999M+'
@@ -35,6 +36,7 @@ const UpvoteList: React.FC<UpvoteListProps> = ({
                 (_, index) => (
                     <Upvote
                         key={`upvote-${index}`}
+                        size={BUTTON_SIZE}
                         selected={selected}
                         onClick={onToggle}
                     />
@@ -42,7 +44,10 @@ const UpvoteList: React.FC<UpvoteListProps> = ({
             )}
 
             {hiddenCount > 0 && (
-                <Tag label={`+${formatCount(hiddenCount)}`} size="lg" />
+                <Tag
+                    label={`+${formatCount(hiddenCount)}`}
+                    size={BUTTON_SIZE}
+                />
             )}
         </div>
     )

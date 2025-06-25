@@ -30,7 +30,7 @@ const UpvotePanel: React.FC<UpvotePanelProps> = ({
                 label="Add New Upvote"
                 icon="add"
                 size="lg"
-                onClick={() => incrementUpvotes(listId, 100)}
+                onClick={() => incrementUpvotes(listId, 1)}
             />
         </div>
     )

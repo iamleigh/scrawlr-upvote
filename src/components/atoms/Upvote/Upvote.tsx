@@ -1,17 +1,19 @@
 import React from 'react'
 import ButtonIcon from '@atom/ButtonIcon/ButtonIcon'
+import type { ButtonSize } from '../Button/button.types'
 
 interface UpvoteProps {
+    size?: ButtonSize
     selected: boolean
     onClick: () => void
 }
 
-const Upvote: React.FC<UpvoteProps> = ({ selected, onClick }) => {
+const Upvote: React.FC<UpvoteProps> = ({ size = 'md', selected, onClick }) => {
     return (
         <ButtonIcon
             label="Upvote"
             icon="up"
-            size="lg"
+            size={size}
             selected={selected}
             onClick={onClick}
         />

@@ -2,27 +2,28 @@
 
 .suc-header {
 	display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    margin: 0 0 2rem;
+	flex-flow: row wrap;
+	align-items: center;
+	margin: 0 0 $spacing-lg;
 
-    &__title {
-        min-width: 1px;
-        flex: 1;
-        margin: 0;
-    }
+	&__title {
+		min-width: 1px;
+		flex: 1;
+		margin: 0;
+	}
 
-    &__actions {
-        display: flex;
-        align-items: center;
-        margin-left: 2rem;
+	&__actions {
+		display: flex;
+		flex: 0 0 auto;
+		align-items: center;
+		margin-left: $spacing-lg;
 
-        button {
-            margin-left: 1rem;
+		button {
+			margin-left: $spacing-md;
 
-            &:first-child {
-                margin-left: 0;
-            }
-        }
-    }
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+	}
 }

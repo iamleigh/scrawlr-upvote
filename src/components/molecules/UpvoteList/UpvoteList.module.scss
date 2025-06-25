@@ -1,9 +1,12 @@
+@use "../../../assets/scss/utils.scss" as *;
+
 .suc-upvote-toolbar {
 	display: flex;
+	flex: 1;
 	flex-flow: row wrap;
 	align-items: center;
-	gap: 16px;
-	padding: 16px;
+	gap: $spacing-md;
+	padding: $spacing-md;
 	border: 1px solid #dee2e6;
-	border-radius: 16px;
+	border-radius: $spacing-md;
 }

@@ -10,8 +10,18 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ title, children }) => {
     return (
         <header className={clsx({ [styles['suc-header']]: true })}>
-            {title && <h1 className={clsx({ [styles['suc-header__title']]: true })}>{title}</h1>}
-            {children && <div className={clsx({ [styles['suc-header__actions']]: true })}>{children}</div>}
+            {title && (
+                <h1 className={clsx({ [styles['suc-header__title']]: true })}>
+                    {title}
+                </h1>
+            )}
+            {children && (
+                <div
+                    className={clsx({ [styles['suc-header__actions']]: true })}
+                >
+                    {children}
+                </div>
+            )}
         </header>
     )
 }

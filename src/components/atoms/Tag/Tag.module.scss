@@ -1,16 +1,16 @@
 @use "../../../assets/scss/utils.scss" as *;
 
 .suc-tag {
-    width: 48px;
+	width: 48px;
 	height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: $radius-md;
-    background: var(--color-button-bg-default);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: $radius-md;
+	background: var(--color-button-bg-default);
 	color: var(--color-button-label-default);
 
-    // Modifier: (Size) Small
+	// Modifier: (Size) Small
 	&--sm {
 		width: 28px;
 		height: 28px;

@@ -1,6 +1,8 @@
+@use "../../../assets/scss/utils.scss" as *;
+
 .suc-upvote-panel {
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
-	gap: 16px;
+	gap: $spacing-md;
 }

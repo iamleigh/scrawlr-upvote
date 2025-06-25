@@ -8,7 +8,7 @@ interface TagProps {
     size?: TagSize
 }
 
-const Tag: React.FC<TagProps> = ({ label, size }) => {
+const Tag: React.FC<TagProps> = ({ label, size = 'md' }) => {
     return (
         <span
             className={clsx({

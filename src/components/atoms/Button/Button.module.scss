@@ -3,6 +3,7 @@
 
 .suc-button {
 	display: flex;
+	flex: 0 0 auto;
 	align-items: center;
 	padding: #{$spacing-md - 1px};
 	border: 1px solid transparent;
