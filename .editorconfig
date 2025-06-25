@@ -10,19 +10,21 @@ charset = utf-8
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
+quote_type = single
 indent_style = space
 indent_size = 4
 
 # Rules applied to JavaScript and TypeScript files
 [{*.js, *.ts, *.jsx, *.tsx}]
-quote_type = single
 spaces_around_operators = true
 spaces_around_brackets = none
 
 # Rules applied to JSON and YAML files
 [{*.json, *.yml}]
+quote_type = double
 indent_size = 2
 
 # Rules applied to stylesheet files
 [{*.scss, *.less, *.sass}]
+quote_type = double
 indent_style = tab
