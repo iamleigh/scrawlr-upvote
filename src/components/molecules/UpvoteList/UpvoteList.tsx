@@ -1,6 +1,6 @@
 import React from 'react'
 import Upvote from '@atom/Upvote/Upvote'
-import styles from './upvoteList.module.scss'
+import styles from './UpvoteList.module.scss'
 import clsx from 'clsx'
 
 interface UpvoteListProps {

@@ -1,7 +1,7 @@
 import React from 'react'
 import Icon from '@atom/Icon/Icon'
-import type { IconName } from '../../../types/icon'
-import styles from './button.module.scss'
+import type { IconName } from '@atom/Icon/icon.types'
+import styles from './Button.module.scss'
 import clsx from 'clsx'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

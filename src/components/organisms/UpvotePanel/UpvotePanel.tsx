@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '@atom/Button/Button'
 import UpvoteList from '@molecule/UpvoteList/UpvoteList'
-import styles from './upvotePanel.module.scss'
+import styles from './UpvotePanel.module.scss'
 import clsx from 'clsx'
 import { useUpvote } from '@context/upvote/hooks'
 
