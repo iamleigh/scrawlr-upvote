@@ -3,7 +3,7 @@ import Button from '@atom/Button/Button'
 import UpvoteList from '@molecule/UpvoteList/UpvoteList'
 import styles from './upvotePanel.module.scss'
 import clsx from 'clsx'
-import { useUpvote } from '@/contexts/useUpvote'
+import { useUpvote } from '@context/upvote/hooks'
 
 type UpvotePanelProps = {
     listId: string

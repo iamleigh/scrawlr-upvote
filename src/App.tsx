@@ -4,8 +4,8 @@ import Header from '@molecule/Header/Header'
 import Card from '@atom/Card/Card'
 import UpvotePanel from '@organism/UpvotePanel/UpvotePanel'
 import Footer from '@molecule/Footer/Footer'
-import { UpvoteProvider } from './contexts/UpvoteContext'
-import { useUpvote } from './contexts/useUpvote'
+import { UpvoteProvider } from '@context/upvote/context'
+import { useUpvote } from '@context/upvote/hooks'
 
 function App() {
     return (

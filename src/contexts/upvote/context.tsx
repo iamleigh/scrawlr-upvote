@@ -1,8 +1,8 @@
 import React, { createContext, useState, useEffect } from 'react'
-import type { UpvoteList, UpvoteContextType } from './upvoteTypes'
-import { DEFAULT_COUNT } from './UpvoteConstants'
-import { loadFromStorage, saveToStorage } from './upvoteStorage'
-import { createDefaultPanel } from './upvoteUtils'
+import type { UpvoteList, UpvoteContextType } from './types'
+import { DEFAULT_COUNT } from './constants'
+import { loadFromStorage, saveToStorage } from './storage'
+import { createDefaultPanel } from './utils'
 
 const UpvoteContext = createContext<UpvoteContextType | undefined>(undefined)
 

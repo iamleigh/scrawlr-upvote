@@ -29,7 +29,8 @@
       "@/*": ["./src/*"],
       "@atom/*": ["./src/components/atoms/*"],
       "@molecule/*": ["./src/components/molecules/*"],
-      "@organism/*": ["./src/components/organisms/*"]
+      "@organism/*": ["./src/components/organisms/*"],
+      "@context/*": ["./src/contexts/*"]
     }
   },
   "include": ["src"]

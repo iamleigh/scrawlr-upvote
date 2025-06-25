@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import type { UpvoteList } from './upvoteTypes'
+import type { UpvoteList } from './types'
 
 export const createDefaultPanel = (): UpvoteList => ({
     listId: uuidv4(),

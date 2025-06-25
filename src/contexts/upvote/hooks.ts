@@ -1,7 +1,7 @@
 import { useContext } from 'react'
-import { UpvoteContext } from './UpvoteContext'
+import { UpvoteContext } from './context'
 
-const useUpvote = () => {
+export const useUpvote = () => {
     const context = useContext(UpvoteContext)
 
     if (!context) {
@@ -10,5 +10,3 @@ const useUpvote = () => {
 
     return context
 }
-
-export { useUpvote }

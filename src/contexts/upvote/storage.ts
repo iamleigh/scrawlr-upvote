@@ -1,5 +1,5 @@
-import { LOCAL_STORAGE_KEY, STORAGE_VERSION } from './UpvoteConstants'
-import type { UpvoteList } from './upvoteTypes'
+import { LOCAL_STORAGE_KEY, STORAGE_VERSION } from './constants'
+import type { UpvoteList } from './types'
 
 /**
  * Loads panel state from localStorage.

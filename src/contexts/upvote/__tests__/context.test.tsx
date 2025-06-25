@@ -1,7 +1,7 @@
 import React from 'react'
 import { describe, it, expect, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { UpvoteContext, UpvoteProvider } from '../UpvoteContext'
+import { UpvoteContext, UpvoteProvider } from '../context'
 
 const TestComponent = () => {
     const context = React.useContext(UpvoteContext)
