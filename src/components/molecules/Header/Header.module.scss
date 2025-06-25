@@ -1,10 +1,15 @@
 @use "../../../assets/scss/utils.scss" as *;
 
 .suc-header {
-	display: flex;
-	flex-flow: row wrap;
-	align-items: center;
+	display: block;
 	margin: 0 0 $spacing-lg;
+	padding: 0;
+
+	@include bp(min-width, sm) {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+	}
 
 	&__title {
 		min-width: 1px;
@@ -16,7 +21,12 @@
 		display: flex;
 		flex: 0 0 auto;
 		align-items: center;
-		margin-left: $spacing-lg;
+		margin-top: $spacing-sm;
+
+		@include bp(min-width, sm) {
+			margin-top: 0;
+			margin-left: $spacing-lg;
+		}
 
 		button {
 			margin-left: $spacing-md;

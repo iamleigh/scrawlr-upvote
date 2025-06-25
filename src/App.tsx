@@ -1,5 +1,5 @@
 import { UpvoteProvider } from '@context/upvote/context'
-import UpvoteLayout from './components/templates/UpvoteLayout'
+import UpvoteLayout from '@template/UpvoteLayout/UpvoteLayout'
 
 function App() {
     return (

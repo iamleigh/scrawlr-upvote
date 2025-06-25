@@ -31,6 +31,7 @@
       "@atom/*": ["./src/components/atoms/*"],
       "@molecule/*": ["./src/components/molecules/*"],
       "@organism/*": ["./src/components/organisms/*"],
+      "@template/*": ["./src/components/templates/*"],
       "@context/*": ["./src/contexts/*"]
     }
   },
