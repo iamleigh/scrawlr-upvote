@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "../tokens" as *;
+@use "../../_tokens/scss" as *;
 
 $breakpoints: (
 	sm: $bp-sm,

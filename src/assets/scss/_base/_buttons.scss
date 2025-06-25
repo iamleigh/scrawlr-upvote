@@ -1,0 +1,15 @@
+@use "../utils" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Buttons
+/// Defines buttons global styles for the project.
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+button {
+	cursor: pointer;
+
+	&[disabled] {
+		cursor: not-allowed;
+	}
+}

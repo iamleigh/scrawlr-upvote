@@ -1,0 +1,59 @@
+@use "../utils" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Typography
+/// Defines the global typo styles for the project.
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+:root {
+	font-synthesis: none;
+}
+
+html {
+	font-size: $font-size-base;
+}
+
+body {
+	color: var(--color-neutral-light);
+	font-family: $font-family-primary;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	letter-spacing: 0;
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	letter-spacing: 0;
+}
+
+a {
+	color: #646cff;
+	font-weight: 500;
+	text-decoration: none;
+
+	&:hover {
+		color: #535bf2;
+		text-decoration: underline;
+	}
+}
+
+p {
+	margin: 0 0 28px;
+	padding: 0;
+	border: 0;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+h1 {
+	font-size: 1.5rem;
+	line-height: 1.5;
+}
+
+strong {
+	font-weight: 500;
+}
