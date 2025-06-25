@@ -1,5 +1,10 @@
+@use "../../../assets/scss/utils.scss" as *;
+
 .suc-card {
-	background: #ffffff;
-	padding: 16px;
-	border-radius: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: $spacing-lg;
+	padding: $spacing-lg;
+	border-radius: $radius-md;
+	background: var(--color-neutral-light);
 }
