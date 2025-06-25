@@ -1,16 +1,18 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { iconMap } from './icon.types'
-import type { IconName } from './icon.types'
+import { iconNameMap, iconSizeMap } from './icon.types'
+import type { IconName, IconSize } from './icon.types'
 
 interface IconProps {
     name: IconName
+    size?: IconSize
 }
 
-const Icon: React.FC<IconProps> = ({ name }) => {
+const Icon: React.FC<IconProps> = ({ name, size = "md" }) => {
     return (
         <FontAwesomeIcon
-            icon={iconMap[name.toLowerCase() as keyof typeof iconMap]}
+            icon={iconNameMap[name.toLowerCase() as keyof typeof iconNameMap]}
+            size={iconSizeMap[size.toLowerCase() as keyof typeof iconSizeMap]}
         />
     )
 }
