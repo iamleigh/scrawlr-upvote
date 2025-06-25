@@ -3,24 +3,34 @@ import Button from '@atom/Button/Button'
 import UpvoteList from '@molecule/UpvoteList/UpvoteList'
 import styles from './upvotePanel.module.scss'
 import clsx from 'clsx'
+import { useUpvote } from '@/contexts/useUpvote'
 
-const UpvotePanel: React.FC = () => {
-    const [upvotes, setUpvotes] = React.useState<number>(1)
-    const [selected, setSelected] = React.useState<boolean>(false)
+type UpvotePanelProps = {
+    listId: string
+    upvotes: number
+    selected: boolean
+}
+
+const UpvotePanel: React.FC<UpvotePanelProps> = ({
+    listId,
+    upvotes,
+    selected,
+}) => {
+    const { incrementUpvotes, toggleUpvotes } = useUpvote()
 
     return (
         <div className={clsx(styles['suc-upvote-panel'])}>
             <UpvoteList
                 upvotes={upvotes}
                 selected={selected}
-                onToggle={() => setSelected(!selected)}
+                onToggle={() => toggleUpvotes(listId)}
             />
 
             <Button
                 label="Add Upvote"
                 icon="add"
                 hideLabel={true}
-                onClick={() => setUpvotes(upvotes + 1)}
+                onClick={() => incrementUpvotes(listId, 100)}
             />
         </div>
     )

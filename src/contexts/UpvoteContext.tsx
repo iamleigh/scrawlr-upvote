@@ -1,34 +1,95 @@
-import React, {createContext, useState, useEffect} from "react"
+import React, { createContext, useState, useEffect } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+
+type UpvoteList = {
+    listId: string
+    upvotes: number
+    selected: boolean
+}
 
 type UpvoteContextType = {
-    panelCount: number
+    panelCount: UpvoteList[]
     incrementPanelCount: () => void
     resetPanelCount: () => void
+    incrementUpvotes: (listId: string, upvotes: number) => void
+    toggleUpvotes: (listId: string) => void
 }
 
 const UpvoteContext = createContext<UpvoteContextType | undefined>(undefined)
 
-const LOCAL_STORAGE_KEY = 'upvotePanelCount'
-const DEFAULT_COUNT = 1
+const LOCAL_STORAGE_KEY = 'leighton_upvotes'
+const DEFAULT_COUNT = 3
+const DEFAULT_PANELS = {
+    listId: uuidv4(),
+    upvotes: 1,
+    selected: false,
+}
 
-const UpvoteProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [panelCount, setPanelCount] = useState<number>(() => {
+const UpvoteProvider: React.FC<{ children: React.ReactNode }> = ({
+    children,
+}) => {
+    const [panelCount, setPanelCount] = useState<UpvoteList[]>(() => {
         const stored = localStorage.getItem(LOCAL_STORAGE_KEY)
-        return stored ? parseInt(stored, 10) : DEFAULT_COUNT
+        return stored
+            ? JSON.parse(stored)
+            : Array.from({ length: DEFAULT_COUNT }).map(() => ({
+                  ...DEFAULT_PANELS,
+              }))
     })
 
     useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY, panelCount.toString())
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(panelCount))
     }, [panelCount])
 
-    const incrementPanelCount = () => setPanelCount(prev => prev + 1)
-    const resetPanelCount = () => setPanelCount(DEFAULT_COUNT)
+    const incrementPanelCount = () => {
+        setPanelCount((prev) => [
+            ...prev,
+            { listId: uuidv4(), upvotes: 1, selected: false },
+        ])
+    }
+    const resetPanelCount = () => {
+        setPanelCount(
+            Array.from({ length: DEFAULT_COUNT }).map(() => ({
+                listId: uuidv4(),
+                upvotes: 1,
+                selected: false,
+            })),
+        )
+    }
+
+    const incrementUpvotes = (listId: string, delta: number) => {
+        setPanelCount((prev) =>
+            prev.map((item) =>
+                item.listId === listId
+                    ? { ...item, upvotes: Math.max(0, item.upvotes + delta) }
+                    : item,
+            ),
+        )
+    }
+
+    const toggleUpvotes = (listId: string) => {
+        setPanelCount((prev) =>
+            prev.map((item) =>
+                item.listId === listId
+                    ? { ...item, selected: !item.selected }
+                    : item,
+            ),
+        )
+    }
 
     return (
-        <UpvoteContext.Provider value={{panelCount, incrementPanelCount, resetPanelCount}}>
+        <UpvoteContext.Provider
+            value={{
+                panelCount,
+                incrementPanelCount,
+                resetPanelCount,
+                incrementUpvotes,
+                toggleUpvotes,
+            }}
+        >
             {children}
         </UpvoteContext.Provider>
     )
 }
 
-export {UpvoteContext, UpvoteProvider}
+export { UpvoteContext, UpvoteProvider }

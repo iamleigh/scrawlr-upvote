@@ -26,8 +26,13 @@ function AppWithUpvote() {
             </Header>
 
             <Card>
-                {Array.from({ length: panelCount }).map((_, index) => (
-                    <UpvotePanel key={`upvote-panel-${index}`} />
+                {panelCount.map((panel) => (
+                    <UpvotePanel
+                        key={panel.listId}
+                        listId={panel.listId}
+                        upvotes={panel.upvotes}
+                        selected={panel.selected}
+                    />
                 ))}
             </Card>
 
