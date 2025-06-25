@@ -4,7 +4,7 @@
 .suc-button {
 	display: flex;
 	align-items: center;
-	padding: $spacing-md;
+	padding: #{$spacing-md - 1px};
 	border: 1px solid transparent;
 	border-radius: $radius-md;
 	background: var(--color-button-bg-default);
@@ -23,7 +23,7 @@
 	}
 
 	svg {
-		margin-right: 8px;
+		margin-right: $spacing-sm;
 	}
 
 	// Modifier: Selected
@@ -38,25 +38,25 @@
 
 	// Modifier: (Size) Small
 	&--sm {
-		padding: $spacing-sm;
+		padding: #{$spacing-sm - 1px};
 		border-radius: $radius-sm;
 		font-size: 10px;
 		line-height: 12px;
 
 		svg {
-			margin-right: 4px;
+			margin-right: math.div($spacing-sm, 2);
 		}
 	}
 
 	// Modifier: (Size) Large
 	&--lg {
-		padding: $spacing-lg;
+		padding: #{$spacing-lg - 1px};
 		border-radius: $radius-lg;
 		font-size: 16px;
 		line-height: 24px;
 
 		svg {
-			margin-right: 12px;
+			margin-right: math.div($spacing-sm, 2) * 3;
 		}
 	}
 }
