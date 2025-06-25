@@ -1,5 +1,3 @@
-
-
 # 🧩 Contributing to Scrawlr Upvote
 
 I'm excited that you're interested in contributing to Scrawlr Upvote!
@@ -9,17 +7,17 @@ This project aims for clarity, modularity, and best practices in state managemen
 
 ## 🚀 How to Contribute
 
-1. **Fork the repository**  
-2. **Create a new branch**  
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
+1. **Fork the repository**
+2. **Create a new branch**
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
 3. **Make your changes locally**
 4. **Write or update tests when applicable**
 5. **Ensure all tests pass**
-   ```bash
-   npx vitest
-   ```
+    ```bash
+    npm run test
+    ```
 6. **Commit your changes with a descriptive message**
 7. **Open a Pull Request**
 
@@ -42,7 +40,7 @@ We use [Vitest](https://vitest.dev) + [React Testing Library](https://testing-li
 Run all tests locally with:
 
 ```bash
-npx vitest
+npm run test
 ```
 
 ---

@@ -32,13 +32,13 @@ cd scrawlr-upvote
 ### 2. Install dependencies
 
 ```bash
-pnpm install
+npm install
 ```
 
 ### 3. Run the app locally
 
 ```bash
-pnpm dev
+npm run dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173) in your browser.
@@ -46,7 +46,7 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 ## 🧪 Running Tests
 
 ```bash
-pnpm test
+npm run test
 ```
 
 Runs all unit tests in the `/contexts/__tests__` folder, covering:
@@ -55,13 +55,25 @@ Runs all unit tests in the `/contexts/__tests__` folder, covering:
 - State updates
 - Migration/version fallback logic
 
+Runs all unit tests in the `components/molecules/UpvoteList` folder, covering:
+
+- Rendered upvote buttons
+- Upvotes summary visibility
+- Upvote button triggers toggle
+
 ## 🧠 Architecture
 
 This project follows a modular structure, with strong separation of concerns:
 
 ```
 src/
-├── components/          # Atomic UI components
+├── components/                        # Atomic UI components
+│   └── atoms/
+│   └── molecules/
+│   └── organisms/
+│   └── templates/
+│       ├── UpvoteLayout/
+│           └── UpvoteLayout.tsx       # The main screen layout
 ├── contexts/
 │   └── upvote/
 │       ├── context.tsx
@@ -71,8 +83,6 @@ src/
 │       ├── types.ts
 │       ├── constants.ts
 │       └── __tests__/
-├── templates/
-│   └── Upvote.tsx       # The main screen layout
 ├── App.tsx
 └── main.tsx
 ```
@@ -82,10 +92,10 @@ src/
 You can tweak the following constants in `contexts/upvote/constants.ts`:
 
 ```ts
-export const DEFAULT_COUNT = 3
-export const STORAGE_KEY = 'scrawlr-upvotes'
-export const STORAGE_VERSION = 1
-export const MAX_UPVOTE_LISTS = 5
+export const DEFAULT_COUNT = 3;
+export const STORAGE_KEY = 'scrawlr-upvotes';
+export const STORAGE_VERSION = 1;
+export const MAX_UPVOTE_LISTS = 5;
 ```
 
 ## 🧩 Example Behavior
@@ -97,7 +107,7 @@ export const MAX_UPVOTE_LISTS = 5
 
 ## 📄 License
 
-MIT © [Your Name]
+MIT © Leighton Quito
 
 ---
 

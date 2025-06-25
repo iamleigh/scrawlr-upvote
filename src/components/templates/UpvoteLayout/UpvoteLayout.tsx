@@ -32,7 +32,15 @@ const UpvoteLayout: React.FC = () => {
                     />
                 ))}
 
-                {panelCount.length >= 5 && <small className={clsx({ [styles['suc-upvote-fineprint']]: true })}>You reached the limit of allowed lists</small>}
+                {panelCount.length >= 5 && (
+                    <small
+                        className={clsx({
+                            [styles['suc-upvote-fineprint']]: true,
+                        })}
+                    >
+                        You reached the limit of allowed lists
+                    </small>
+                )}
             </Card>
 
             <Footer />
