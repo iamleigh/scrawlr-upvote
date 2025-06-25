@@ -11,6 +11,7 @@ const Upvote: React.FC<UpvoteProps> = ({ selected, onClick }) => {
         <ButtonIcon
             label="Upvote"
             icon="up"
+            size="lg"
             selected={selected}
             onClick={onClick}
         />

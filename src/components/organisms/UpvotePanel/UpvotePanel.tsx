@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '@atom/Button/Button'
+import ButtonIcon from '@atom/ButtonIcon/ButtonIcon'
 import UpvoteList from '@molecule/UpvoteList/UpvoteList'
 import styles from './UpvotePanel.module.scss'
 import clsx from 'clsx'
@@ -26,10 +26,10 @@ const UpvotePanel: React.FC<UpvotePanelProps> = ({
                 onToggle={() => toggleUpvotes(listId)}
             />
 
-            <Button
-                label="Add Upvote"
+            <ButtonIcon
+                label="Add New Upvote"
                 icon="add"
-                hideLabel={true}
+                size="lg"
                 onClick={() => incrementUpvotes(listId, 100)}
             />
         </div>
