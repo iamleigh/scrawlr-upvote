@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { iconMap } from '../../../types/icon'
-import type { IconName } from '../../../types/icon'
+import { iconMap } from './icon.types'
+import type { IconName } from './icon.types'
 
 interface IconProps {
     name: IconName
