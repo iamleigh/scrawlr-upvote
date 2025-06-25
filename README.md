@@ -1,54 +1,125 @@
-# React + TypeScript + Vite
+# Scrawlr Upvote
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React 19 application showcasing a simple upvote panel system with persistent state, context-based architecture, and clean component composition following Atomic Design principles.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ Add and manage multiple upvote lists
+- 🔄 Persistent state using `localStorage` with versioning and migration
+- ♻️ Reusable components and modular context architecture
+- 💾 Backward-compatible data format with fallbacks
+- ⚛️ Built using React 19 + Vite + TypeScript
+- 🧪 Unit tested context logic using Vitest + React Testing Library
 
-## Expanding the ESLint configuration
+## 📦 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Framework**: [React 19](https://react.dev)
+- **Tooling**: [Vite](https://vitejs.dev), TypeScript
+- **Testing**: [Vitest](https://vitest.dev), [React Testing Library](https://testing-library.com/)
+- **State Management**: React Context + Custom Hook
+- **Persistence**: Local Storage with versioning support
+- **Design Structure**: Atomic Design Principles
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🚀 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/iamleigh/scrawlr-upvote.git
+cd scrawlr-upvote
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+pnpm install
 ```
+
+### 3. Run the app locally
+
+```bash
+pnpm dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## 🧪 Running Tests
+
+```bash
+pnpm test
+```
+
+Runs all unit tests in the `/contexts/__tests__` folder, covering:
+
+- Context initialization
+- State updates
+- Migration/version fallback logic
+
+## 🧠 Architecture
+
+This project follows a modular structure, with strong separation of concerns:
+
+```
+src/
+├── components/          # Atomic UI components
+├── contexts/
+│   └── upvote/
+│       ├── context.tsx
+│       ├── useUpvote.ts
+│       ├── utils.ts
+│       ├── storage.ts
+│       ├── types.ts
+│       ├── constants.ts
+│       └── __tests__/
+├── templates/
+│   └── Upvote.tsx       # The main screen layout
+├── App.tsx
+└── main.tsx
+```
+
+## 🔧 Configuration
+
+You can tweak the following constants in `contexts/upvote/constants.ts`:
+
+```ts
+export const DEFAULT_COUNT = 3
+export const STORAGE_KEY = 'scrawlr-upvotes'
+export const STORAGE_VERSION = 1
+export const MAX_UPVOTE_LISTS = 5
+```
+
+## 🧩 Example Behavior
+
+- Add multiple upvote lists (max 5)
+- Each list displays upvotes (max 5 visible) + a count badge (e.g. `+3`)
+- Data persists across refreshes
+- Reset button restores the default state (1 or 3 lists depending on version)
+
+## 📄 License
+
+MIT © [Your Name]
+
+---
+
+# Contributing to Scrawlr Upvote
+
+We welcome contributions from the community!
+
+## 🛠 How to Contribute
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/your-feature`)
+3. Commit your changes
+4. Push to your fork
+5. Open a Pull Request
+
+## ✅ Contribution Guidelines
+
+- Ensure all new code is covered by unit tests
+- Maintain consistency with the project's code style
+- Write clear, descriptive commit messages
+- Keep PRs focused and atomic
+
+## 💬 Questions or Suggestions?
+
+Feel free to open an issue or start a discussion in the repo.
