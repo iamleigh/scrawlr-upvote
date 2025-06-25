@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '@atom/Button/Button'
+import ButtonIcon from '@atom/ButtonIcon/ButtonIcon'
 
 interface UpvoteProps {
     selected: boolean
@@ -8,10 +8,9 @@ interface UpvoteProps {
 
 const Upvote: React.FC<UpvoteProps> = ({ selected, onClick }) => {
     return (
-        <Button
+        <ButtonIcon
             label="Upvote"
             icon="up"
-            hideLabel={true}
             selected={selected}
             onClick={onClick}
         />
