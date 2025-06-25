@@ -8,7 +8,7 @@ interface IconProps {
     size?: IconSize
 }
 
-const Icon: React.FC<IconProps> = ({ name, size = "md" }) => {
+const Icon: React.FC<IconProps> = ({ name, size = 'md' }) => {
     return (
         <FontAwesomeIcon
             icon={iconNameMap[name.toLowerCase() as keyof typeof iconNameMap]}

@@ -18,7 +18,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const ButtonIcon: React.FC<ButtonProps> = ({
     label,
     icon,
-    size = "md",
+    size = 'md',
     selected,
     disabled,
     onClick,

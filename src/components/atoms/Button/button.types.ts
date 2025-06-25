@@ -1,4 +1,1 @@
-export type ButtonSize =
-    | "sm"
-    | "md"
-    | "lg"
+export type ButtonSize = 'sm' | 'md' | 'lg'
