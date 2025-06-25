@@ -19,6 +19,55 @@ const UpvoteContext = createContext<UpvoteContextType | undefined>(undefined)
 
 const LOCAL_STORAGE_KEY = 'leighton_upvotes'
 const DEFAULT_COUNT = 3
+
+// Used to version the structure of localStorage data.
+// Increment only when the data format changes and older data needs to be handled differently.
+const STORAGE_VERSION = 1
+
+/**
+ * Loads panel state from localStorage.
+ *
+ * Handles both current and legacy data formats:
+ * - Current (v1): { version: 1, data: UpvoteList[] }
+ * - Legacy (v0): UpvoteList[] (plain array)
+ *
+ * This helps to fall back to default state if storage is corrupted or missing
+ * enabling backwards compatibility without requiring explicit migrations.
+ */
+const loadFromStorage = (): UpvoteList[] => {
+    try {
+        const raw = localStorage.getItem(LOCAL_STORAGE_KEY)
+        if (!raw) return []
+        const parsed = JSON.parse(raw)
+
+        if (Array.isArray(parsed)) {
+            // Migration from v0 (base array)
+            return parsed
+        }
+
+        if (parsed.version === STORAGE_VERSION && Array.isArray(parsed.data)) {
+            return parsed.data
+        }
+
+        return []
+    } catch {
+        return []
+    }
+}
+
+/**
+ * Saves panel state to localStorage using a versioned wrapper.
+ *
+ * This allows future version of the app to detect format changes
+ * and preserve compatibility with older persistent data.
+ */
+const saveToStorage = (data: UpvoteList[]) => {
+    localStorage.setItem(
+        LOCAL_STORAGE_KEY,
+        JSON.stringify({ version: STORAGE_VERSION, data }),
+    )
+}
+
 const createDefaultPanel = (): UpvoteList => ({
     listId: uuidv4(),
     upvotes: 1,
@@ -29,14 +78,16 @@ const UpvoteProvider: React.FC<{ children: React.ReactNode }> = ({
     children,
 }) => {
     const [panelCount, setPanelCount] = useState<UpvoteList[]>(() => {
-        const stored = localStorage.getItem(LOCAL_STORAGE_KEY)
-        return stored
-            ? JSON.parse(stored)
-            : Array.from({ length: DEFAULT_COUNT }).map(() => createDefaultPanel())
+        const stored = loadFromStorage()
+        return stored.length > 0
+            ? stored
+            : Array.from({ length: DEFAULT_COUNT }).map(() =>
+                  createDefaultPanel(),
+              )
     })
 
     useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(panelCount))
+        saveToStorage(panelCount)
     }, [panelCount])
 
     const incrementPanelCount = () => {
@@ -47,11 +98,9 @@ const UpvoteProvider: React.FC<{ children: React.ReactNode }> = ({
     }
     const resetPanelCount = () => {
         setPanelCount(
-            Array.from({ length: DEFAULT_COUNT }).map(() => ({
-                listId: uuidv4(),
-                upvotes: 1,
-                selected: false,
-            })),
+            Array.from({ length: DEFAULT_COUNT }).map(() =>
+                createDefaultPanel(),
+            ),
         )
     }
 
