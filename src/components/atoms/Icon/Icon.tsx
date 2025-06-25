@@ -11,7 +11,6 @@ const Icon: React.FC<IconProps> = ({ name }) => {
     return (
         <FontAwesomeIcon
             icon={iconMap[name.toLowerCase() as keyof typeof iconMap]}
-            size="xl"
         />
     )
 }

@@ -8,6 +8,15 @@ $bp-md: 710px;
 $bp-lg: 980px;
 $bp-xl: 1200px;
 
+$spacing-sm: 8px;
+$spacing-md: $spacing-sm * 2;
+$spacing-lg: $spacing-sm * 3;
+$spacing-xl: $spacing-sm * 4;
+
+$radius-sm: 4px;
+$radius-md: $radius-sm * 3;
+$radius-lg: $radius-sm * 4;
+
 $font-family-primary:
 	-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
 	"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;

@@ -4,9 +4,15 @@ import type { IconName } from '@atom/Icon/icon.types'
 import styles from './Button.module.scss'
 import clsx from 'clsx'
 
+type ButtonSize =
+    | "sm"
+    | "md"
+    | "lg"
+
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     label: string
     icon?: IconName
+    size?: ButtonSize
     hideLabel?: boolean
     selected?: boolean
     disabled?: boolean
@@ -16,6 +22,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const Button: React.FC<ButtonProps> = ({
     label,
     icon,
+    size = "md",
     hideLabel,
     selected,
     disabled,
@@ -26,6 +33,8 @@ const Button: React.FC<ButtonProps> = ({
             className={clsx({
                 [styles['suc-button']]: true,
                 [styles['suc-button--icon']]: hideLabel,
+                [styles['suc-button--sm']]: size === 'sm',
+                [styles['suc-button--lg']]: size === 'lg',
                 [styles['suc-button--selected']]: selected,
             })}
             {...(hideLabel && { 'aria-label': label })}
@@ -33,8 +42,8 @@ const Button: React.FC<ButtonProps> = ({
             {...(disabled && { disabled: true })}
             onClick={onClick}
         >
-            {icon && <Icon name={icon} />}
-            {!hideLabel && label}
+            {icon && <span className={clsx(styles['suc-button__icon'])}><Icon name={icon} /></span>}
+            {!hideLabel && <span className={clsx(styles['suc-button__label'])}>{label}</span>}
         </button>
     )
 }
