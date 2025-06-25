@@ -44,3 +44,26 @@ export const saveToStorage = (data: UpvoteList[]) => {
         JSON.stringify({ version: STORAGE_VERSION, data }),
     )
 }
+
+/**
+ * Debounced version of `saveToStorage` to reduce write frequency.
+ *
+ * Useful to avoid excessive `localStorage` writes during rapid updates,
+ * especially when user interactions trigger frequent state changes.
+ *
+ * ⚠️ Optional Enhancement:
+ * Helps reduce localStorage writes during rapid or large state updates.
+ */
+
+// Timer reference to control deferred writes
+let debounceTimer: ReturnType<typeof setTimeout> | null = null
+
+export const saveToStorageDebounced = (data: UpvoteList[], delay = 300) => {
+    if (debounceTimer) {
+        clearTimeout(debounceTimer)
+    }
+
+    debounceTimer = setTimeout(() => {
+        saveToStorage(data)
+    }, delay)
+}
