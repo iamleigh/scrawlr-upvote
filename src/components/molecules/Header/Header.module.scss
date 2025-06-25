@@ -1,0 +1,28 @@
+@use "../../../assets/scss/utils.scss" as *;
+
+.suc-header {
+	display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin: 0 0 2rem;
+
+    &__title {
+        min-width: 1px;
+        flex: 1;
+        margin: 0;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        margin-left: 2rem;
+
+        button {
+            margin-left: 1rem;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+}
