@@ -16,6 +16,7 @@ const Upvote: React.FC<UpvoteProps> = ({ size = 'md', selected, onClick }) => {
             size={size}
             selected={selected}
             onClick={onClick}
+            data-testid="upvote-button"
         />
     )
 }

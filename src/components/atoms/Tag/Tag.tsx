@@ -16,6 +16,7 @@ const Tag: React.FC<TagProps> = ({ label, size = 'md' }) => {
                 [styles['suc-tag--sm']]: size === 'sm',
                 [styles['suc-tag--lg']]: size === 'lg',
             })}
+            data-testid="summary-tag"
         >
             {label}
         </span>

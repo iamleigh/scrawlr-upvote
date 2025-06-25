@@ -22,6 +22,7 @@ const Button: React.FC<ButtonProps> = ({
     selected,
     disabled,
     onClick,
+    ...props
 }) => {
     return (
         <button
@@ -34,6 +35,7 @@ const Button: React.FC<ButtonProps> = ({
             {...(typeof selected === 'boolean' && { 'aria-pressed': selected })}
             {...(disabled && { disabled: true })}
             onClick={onClick}
+            {...props}
         >
             {icon && <Icon name={icon} size={size} />}
             {label}
